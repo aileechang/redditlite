@@ -25,7 +25,7 @@
 }
 
 .subreddit-section button:hover {
-  background: var(--hover-color);
+  background: var(--input-secondary);
 }
 
 .selected-subreddit button {
