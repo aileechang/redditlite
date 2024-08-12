@@ -19,7 +19,7 @@ const Subreddits = () => {
 
   return (
     <Card className="subreddit-section">
-      <h2>Explore Subreddits</h2>
+      <h3>EXPLORE SUBREDDITS</h3>
       <ul className="subreddits-list">
         {subreddits.map((subreddit) => (
           <li
@@ -41,7 +41,7 @@ const Subreddits = () => {
                 className="subreddit-icon"
                 style={{ border: `3px solid ${subreddit.primary_color}` }}
               />
-              {subreddit.display_name}
+              <h4>r/{subreddit.display_name}</h4>
             </button>
           </li>
         ))}

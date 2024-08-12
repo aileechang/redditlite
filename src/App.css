@@ -1,45 +1,27 @@
 .app {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 
 
 main {
     display: flex;
-    justify-content: space-between;
+    flex-grow: 1;
     width: 100%;
-    gap: 5px;
-    padding: 10px 15px;
 }
 
 .subreddits {
+    width: 250px;
 }
 
 .posts {
+    flex: 1;
+    padding-left: 20px;
 }
 
-
-  
-/*aside {
-    width: 250px;
-    background-color: var(--card-bg);
-    color: #ffffff;
-    padding: 20px;
-    position: fixed;
-    top: 101px;
-    bottom: 0;
-    left: 0;
-}
-  
-main {
-    margin-left: 270px;
-    padding: 20px;
-    min-height: calc(100vh - 80px);
-    justify-content: center;
-    align-items: center;
-}*/

@@ -83,13 +83,11 @@ header {
     height: auto;
   }
   
-  @media only screen and (max-width: 959px) {
+  @media only screen and (max-width: 768px) {
     .logo p {
       display: none;
     }
-  }
-  
-  @media only screen and (max-width: 768px) {
+
     .search {
         max-width: 75%;
     }
