@@ -52,52 +52,50 @@ const Post = (props) => {
 
   return (
     <article key={post.id}>
-      <Card>
-        <div className='card'>
-          <div className='post-header'>
-            <div className='header-info'>
-              <div className='info-details'>
-                <p className='author'>{post.author}</p>
-                <p className='subreddit'>r/{post.subreddit}</p>
-              </div>
-              <p className='timeAgo'>{moment.unix(post.created_utc).fromNow()}</p>
-              <h3 className='title'>{post.title}</h3>
+      <Card className='card'>
+        <div className='post-header'>
+          <div className='header-info'>
+            <div className='info-details'>
+              <p className='author'>{post.author}</p>
+              <p className='subreddit'>r/{post.subreddit}</p>
             </div>
+            <p className='timeAgo'>{moment.unix(post.created_utc).fromNow()}</p>
+            <h3 className='title'>{post.title}</h3>
           </div>
-          <div className='content'>
-            <img src={post.url} alt='' className='post-image' />
+        </div>
+        <div className='content'>
+          <img src={post.url} alt='' className='post-image' />
+        </div>
+        <div className='footer'>
+          <div className='voting'>
+            <button
+              type="button"
+              className={`icon-action-button up-vote ${
+                voteValue === 1 && 'active'
+              }`}
+              onClick={() => onHandleVote(1)}
+              aria-label="Up vote"
+            >
+              {renderUpVote()}
+            </button>
+            <p className={`post-votes-value ${getVoteType()}`}>
+            {shortenNumber(post.ups, 1)}
+            </p> 
+            <button
+              type="button"
+              className={`icon-action-button down-vote ${
+                voteValue === -1 && 'active'
+              }`}
+              onClick={() => onHandleVote(-1)}
+              aria-label="Down vote"
+            >
+              {renderDownVote()}
+            </button>
           </div>
-          <div className='footer'>
-            <div className='voting'>
-              <button
-                type="button"
-                className={`icon-action-button up-vote ${
-                  voteValue === 1 && 'active'
-                }`}
-                onClick={() => onHandleVote(1)}
-                aria-label="Up vote"
-              >
-                {renderUpVote()}
-              </button>
-              <p className={`post-votes-value ${getVoteType()}`}>
-              {shortenNumber(post.ups, 1)}
-              </p> 
-              <button
-                type="button"
-                className={`icon-action-button down-vote ${
-                  voteValue === -1 && 'active'
-                }`}
-                onClick={() => onHandleVote(-1)}
-                aria-label="Down vote"
-              >
-                {renderDownVote()}
-              </button>
-            </div>
-            <div className='comment'>
-              <button className='icon-action-button comment'>
-                <FaComment alt='Comments' className='icon-action' />
-              </button>
-            </div>
+          <div className='comment'>
+            <button className='icon-action-button comment'>
+              <FaComment alt='Comments' className='icon-action' />
+            </button>
           </div>
         </div>
       </Card>
