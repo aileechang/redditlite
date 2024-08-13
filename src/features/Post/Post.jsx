@@ -27,16 +27,16 @@ const Post = (props) => {
 
   const renderUpVote = () => {
     if (voteValue === 1) {
-      return <FaChevronCircleUp className="icon-action" />;
+      return <FaChevronCircleUp className="icon-action up-clicked" />;
     }
-    return <FaChevronUp className="icon-action" />;
+    return <FaChevronUp className="icon-action up-hover" />;
   };
 
   const renderDownVote = () => {
     if (voteValue === -1) {
-      return <FaChevronCircleDown className="icon-action" />;
+      return <FaChevronCircleDown className="icon-action down-clicked" />;
     }
-    return <FaChevronDown className="icon-action" />;
+    return <FaChevronDown className="icon-action down-hover" />;
   };
 
   const getVoteType = () => {
@@ -94,7 +94,7 @@ const Post = (props) => {
           </div>
           <div className='comment'>
             <button className='icon-action-button comment'>
-              <FaComment alt='Comments' className='icon-action' />
+              <FaComment alt='Comments' className='icon-action action-comment' />
             </button>
           </div>
         </div>

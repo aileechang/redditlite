@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import redditliteLogo from '../../assets/redditlite-logo.png';
 import { FaSearch, FaHome } from "react-icons/fa";
 import './Header.css';

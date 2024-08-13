@@ -59,7 +59,7 @@ article {
   font-size: 1.2rem;
   color: var(--text-primary);
   width: 100%;
-  text-align: center;
+  text-align: justify;
   word-wrap: break-word;
   margin: 10px 0;
 }
@@ -84,20 +84,26 @@ article {
   gap: 10px;
 }
 
-.voting {
+.voting, .comment {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 0.2rem;
-  border-radius: 25px;
-  height: 20px;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 50px;
+  height: 22px;
   background-color: var(--input-primary);
-  padding: 4px 8px;
+  padding: 4px 0;
 }
 
 button {
   align-items: center;
   width: 100%;
+}
+
+.icon-action {
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
 }
 
 .icon-action-button {
@@ -111,22 +117,58 @@ button {
 }
 
 .icon-action-button:hover {
-  transform: scale(1.5);
-  color: var(--input-secondary);
+  transform: scale(1.3);
+  background-color: var(--input-secondary);
 }
 
-.icon-action {
-  width: 20px;
-  height: 20px;
-  color: var(--text-secondary);
+.icon-action-button.up-vote {
+  padding: 0;
 }
 
-.comment {
-  display: flex;
-  height: 20px;
-  border-radius: 25px;
-  background-color: var(--input-primary);
-  padding: 4px 8px;
+.icon-action.up-hover:hover {
+  color: var(--accent-color);
+}
+
+.icon-action.up-clicked {
+  width: 28px;
+  height: 28px;
+  margin-top: 1px;
+  color: var(--accent-color);
+  background-color: var(--text-primary);
+  border-radius: 50%;
+}
+
+.icon-action-button.down-vote {
+  padding: 0;
+}
+
+.icon-action.down-hover:hover {
+  color: var(--accent-secondary);
+}
+
+.icon-action.down-clicked {
+  width: 28px;
+  height: 28px;
+  color: var(--accent-secondary);
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  margin-top: 1px;
+}
+
+.icon-action.action-comment {
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 959px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 85%;
+  }
 }
 
 /*.post-wrapper {
