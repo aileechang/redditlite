@@ -44,9 +44,9 @@ const Home = () => {
   if (posts.length === 0) {
     return (
       <div className="error">
-        <h2>No posts matching "{searchTerm}"</h2>
+        <h2>No results for " <span className='search-term'>{searchTerm}</span> "</h2>
         <button type="button" onClick={() => dispatch(setSearchTerm(''))}>
-          Go home
+          Back to home
         </button>
       </div>
     );

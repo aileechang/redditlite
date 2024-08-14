@@ -6,6 +6,8 @@ import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
 import moment from 'moment';
 import shortenNumber from '../../utility/shortenNumber';
 import Card from '../../components/Card/Card';
+import Comment from '../Comment/Comment';
+import Avatar from '../Avatar/Avatar';
 
 const Post = (props) => {
   const [voteValue, setVoteValue] = useState(0);
@@ -48,6 +50,39 @@ const Post = (props) => {
     }
 
     return '';
+  };
+
+  const renderComments = () => {
+    if (post.errorComments) {
+      return (
+        <div className='error-message'>
+          <h3>Error loading comments</h3>
+        </div>
+      );
+    }
+
+    if (post.loadingComments) {
+      return (
+        <div>
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+        </div>
+      );
+    }
+
+    if (post.showingComments) {
+      return (
+        <div>
+          {post.comments.map((comment) => (
+            <Comment comment={comment} key={comment.id} />
+          ))}
+        </div>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -93,9 +128,18 @@ const Post = (props) => {
             </button>
           </div>
           <div className='comment'>
-            <button className='icon-action-button comment'>
+            <button 
+              type='button'
+              className={`icon-action-button ${
+                post.showingComments && 'showing-comments'
+              }`}
+              onClick={() => onToggleComments(post.permalink)}
+              aria-label='Show comments'
+            >
               <FaComment alt='Comments' className='icon-action action-comment' />
             </button>
+            {shortenNumber(post.num_comments, 1)}
+            {renderComments()}
           </div>
         </div>
       </Card>

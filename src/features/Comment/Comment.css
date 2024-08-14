@@ -1,0 +1,48 @@
+.comment {
+    background: var(--bg-secondary);
+    margin: 5px 0; /* Ensure uniform vertical spacing between comments */
+    padding: 10px;
+    transition: box-shadow 0.2s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border: 1px solid var(--border-color); /* Slight border for definition */
+}
+
+.comment-metadata {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px; /* Space between avatar and author */
+}
+
+.comment-author {
+    font-weight: bold;
+    color: var(--text-primary); /* Ensure this is defined in your variables */
+    margin-right: 10px; /* Space between author and timestamp */
+}
+
+.comment-timeAgo {
+    margin-left: auto;
+    font-style: italic;
+    color: var(--text-muted); /* Softer color for less emphasis */
+}
+
+.react-markdown {
+    color: var(--text-primary); /* Primary text color for readability */
+    font-size: 0.9rem; /* Slightly smaller text for nested content */
+    line-height: 1.4; /* Improve readability */
+    word-break: break-word; /* Ensure long words do not overflow */
+    padding: 0 5px; /* Padding to align text nicely within the comment box */
+}
+
+/* Add a hover effect to enhance interactivity */
+.comment:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-2px); /* Slight lift effect */
+}

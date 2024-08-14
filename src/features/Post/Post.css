@@ -75,17 +75,20 @@ article {
 }
 
 .post-image {
-  width: 100%;
+  max-width: 100%;  /* Ensure images are not stretched beyond their width */
+  height: auto;  /* Maintain aspect ratio */
+  object-fit: cover;  /* Cover the container without losing aspect ratio */
 }
 
 .footer {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .voting, .comment {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
@@ -159,71 +162,44 @@ button {
   margin: 0 auto;
 }
 
+.showingComments {
+  color: var(--accent-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid var(--error-color);  /* Add a border to error messages */
+  margin: 10px 0;
+}
+
+
 @media only screen and (max-width: 959px) {
-  .card {
-    width: 80%;
-  }
+
 }
 
 @media only screen and (max-width: 768px) {
   .card {
-    width: 85%;
+    width: 90%;
+    padding: 15px;  /* Slightly larger padding for better touch interaction */
+  }
+  
+  .title {
+    font-size: 1.1rem;  /* Slightly smaller font size for smaller screens */
+  }
+  
+  .author, .subreddit, .timeAgo {
+    font-size: 0.8rem;  /* Adjust font size for readability on small screens */
   }
 }
 
-/*.post-wrapper {
-    display: flex;
-  }
-  
-  .post-container {
-    width: 100%;
-  }
-  
-  .post-details {
-    margin-top: var(--spacing-2);
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--spacing-1);
-    font-size: 0.75rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .post-details .author-username {
-    color: var(--color-branding);
-    font-weight: bold;
-  }
-  
-  .post-image-container {
-    width: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-2);
-  }
-  
-  .post-image-container .post-image {
-    width: 100%;
-  }
-  
-  .post-title {
-    margin: 0;
-    margin-bottom: var(--spacing-2);
-    color: var(--color-text-header);
-  }
-  
-  .post-votes-container {
-    margin-right: var(--spacing-3);
-  }
-  
-  .post-votes-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .icon-action {
-    font-size: 1.5rem;
-  }
-  
+
+
+
+
+
+/*
   .post-votes-container .post-votes-value {
     margin: var(--spacing-1) 0;
     font-weight: bold;
