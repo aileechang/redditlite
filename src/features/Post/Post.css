@@ -35,6 +35,13 @@ article {
   width: 100%;
 }
 
+.avatar-profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px; /* Space between avatar and author */
+}
+
 .author {
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -181,83 +188,6 @@ button {
 
 @media only screen and (max-width: 768px) {
   .card {
-    width: 90%;
-    padding: 15px;  /* Slightly larger padding for better touch interaction */
-  }
-  
-  .title {
-    font-size: 1.1rem;  /* Slightly smaller font size for smaller screens */
-  }
-  
-  .author, .subreddit, .timeAgo {
-    font-size: 0.8rem;  /* Adjust font size for readability on small screens */
+    width: 85%;
   }
 }
-
-
-
-
-
-
-/*
-  .post-votes-container .post-votes-value {
-    margin: var(--spacing-1) 0;
-    font-weight: bold;
-  }
-  
-  .post-votes-value.up-vote {
-    color: var(--color-success) !important;
-  }
-  
-  .post-votes-value.down-vote {
-    color: var(--color-alert) !important;
-  }
-  
-  .up-vote:hover {
-    color: var(--color-success) !important;
-  }
-  
-  .up-vote.active {
-    color: var(--color-success) !important;
-  }
-  
-  .down-vote:hover {
-    color: var(--color-alert) !important;
-  }
-  
-  .down-vote.active {
-    color: var(--color-alert) !important;
-  }
-  
-  .icon-action-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-secondary);
-    padding: 0;
-    display: flex;
-    align-items: center;
-    border-radius: var(--radius);
-  }
-  
-  .icon-action-button:hover {
-    background: var(--color-on-hover);
-  }
-  
-  .post-comments-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .post-comments-container .icon-action {
-    margin-right: var(--spacing-0);
-  }
-  
-  .author-details {
-    display: flex;
-    align-items: center;
-  }
-  
-  .showing-comments {
-    color: var(--color-branding);
-  }*/

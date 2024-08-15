@@ -1,13 +1,3 @@
-.comment {
-    background: var(--bg-secondary);
-    margin: 5px 0; /* Ensure uniform vertical spacing between comments */
-    padding: 10px;
-    transition: box-shadow 0.2s ease-in-out;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border: 1px solid var(--border-color); /* Slight border for definition */
-}
-
 .comment-metadata {
     display: flex;
     align-items: center;
