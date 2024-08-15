@@ -19,6 +19,7 @@ article {
   border-radius: 5px;
 }
 
+/* Header */
 .post-header {
   margin-bottom: 15px;
 }
@@ -26,6 +27,7 @@ article {
 .header-info {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -33,13 +35,6 @@ article {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.avatar-profile-image {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px; /* Space between avatar and author */
 }
 
 .author {
@@ -71,6 +66,7 @@ article {
   margin: 10px 0;
 }
 
+/* Content */
 .content {
   display: flex;
   flex-direction: column;
@@ -82,11 +78,12 @@ article {
 }
 
 .post-image {
-  max-width: 100%;  /* Ensure images are not stretched beyond their width */
-  height: auto;  /* Maintain aspect ratio */
-  object-fit: cover;  /* Cover the container without losing aspect ratio */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
+/* Footer */
 .footer {
   display: flex;
   align-items: center;
@@ -95,14 +92,54 @@ article {
 
 .voting, .comment {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  background-color: var(--input-primary);
+  height: 30px;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.voting {
+  width: 110px;
+}
+
+.comment {
+  width: 50px;
+}
+
+
+.up-vote-button,
+.down-vote-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+
+.up-vote, .down-vote {
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+}
+
+.comment-button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30px;
+  gap: 8px;
+}
+
+/*.voting, .comment {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   border-radius: 50px;
   height: 22px;
   background-color: var(--input-primary);
-  padding: 4px 0;
+  padding: 4px;
 }
 
 button {
@@ -177,10 +214,13 @@ button {
   color: var(--error-color);
   font-weight: bold;
   padding: 10px;
-  border: 1px solid var(--error-color);  /* Add a border to error messages */
+  border: 1px solid var(--error-color);
   margin: 10px 0;
 }
 
+.post-votes-value {
+  margin: 0;
+}*/
 
 @media only screen and (max-width: 959px) {
 

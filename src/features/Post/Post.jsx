@@ -11,7 +11,7 @@ import Avatar from '../Avatar/Avatar';
 
 const Post = (props) => {
   const [voteValue, setVoteValue] = useState(0);
-  const [commentsVisible, setCommentsVisible] = useState(false); // State to manage comment visibility
+  const [commentsVisible, setCommentsVisible] = useState(false);
 
   const { post, onToggleComments } = props;
 
@@ -27,16 +27,16 @@ const Post = (props) => {
 
   const renderUpVote = () => {
     if (voteValue === 1) {
-      return <FaChevronCircleUp className="icon-action up-clicked" />;
+      return <FaChevronCircleUp className="up-clicked" />;
     }
-    return <FaChevronUp className="icon-action up-hover" />;
+    return <FaChevronUp className="up-vote" />;
   };
 
   const renderDownVote = () => {
     if (voteValue === -1) {
-      return <FaChevronCircleDown className="icon-action down-clicked" />;
+      return <FaChevronCircleDown className="down-clicked" />;
     }
-    return <FaChevronDown className="icon-action down-hover" />;
+    return <FaChevronDown className="down-vote" />;
   };
 
   const getVoteType = () => {
@@ -83,8 +83,8 @@ const Post = (props) => {
   };
 
   const toggleCommentsVisibility = () => {
-    setCommentsVisible(!commentsVisible); // Toggle visibility
-    onToggleComments(post.permalink); // Fetch comments if needed
+    setCommentsVisible(!commentsVisible);
+    onToggleComments(post.permalink);
   };
 
   return (
@@ -94,7 +94,6 @@ const Post = (props) => {
           <div className='post-header'>
             <div className='header-info'>
               <div className='info-details'>
-                <Avatar name={post.author} />
                 <p className='author'>{post.author}</p>
                 <p className='subreddit'>r/{post.subreddit}</p>
               </div>
@@ -107,6 +106,30 @@ const Post = (props) => {
           </div>
           <div className='footer'>
             <div className='voting'>
+              <button
+                type="button"
+                className={`up-vote-button ${
+                  voteValue === 1 && 'active'
+                }`}
+                onClick={() => onHandleVote(1)}
+                aria-label="Up vote"
+              >
+                {renderUpVote()}
+              </button>
+              <p className={`votes-value ${getVoteType()}`}>
+              {shortenNumber(post.ups, 1)}
+              </p> 
+              <button
+                type="button"
+                className={`down-vote-button ${
+                  voteValue === -1 && 'active'
+                }`}
+                onClick={() => onHandleVote(-1)}
+                aria-label="Down vote"
+              >
+                {renderDownVote()}
+              </button>
+              {/*
               <button
                 type="button"
                 className={`icon-action-button up-vote ${
@@ -131,26 +154,36 @@ const Post = (props) => {
                 {renderDownVote()}
               </button>
             </div>
-            <div className='comment-container'>
-              <div className='comment'>
-                <button 
-                  type='button'
-                  className={`icon-action-button ${
-                    commentsVisible && 'showing-comments'
-                  }`}
-                  onClick={toggleCommentsVisibility}
-                  aria-label='Show comments'
-                >
-                  <FaComment alt='Comments' className='icon-action action-comment' />
-                </button>
+            <div className='comment'>
+              <button 
+                type='button'
+                className={`icon-action-button ${
+                  commentsVisible && 'showing-comments'
+                }`}
+                onClick={toggleCommentsVisibility}
+                aria-label='Show comments'
+              >
+                <FaComment alt='Comments' className='icon-action action-comment' />
+              </button>
+              {shortenNumber(post.num_comments, 1)}  */}
+            </div>
+            <div className='comment'>
+              <button 
+                type='button'
+                className={`comment-button ${
+                  commentsVisible && 'showing-comments'
+                }`}
+                onClick={toggleCommentsVisibility}
+                aria-label='Show comments'
+              >
+                <FaComment alt='Comments' className='comment-icon' />
                 {shortenNumber(post.num_comments, 1)}
-              </div>
+              </button>
             </div>
           </div>
         </Card>
       </article>
 
-      {/* Conditionally render the new card with post and comments */}
       {commentsVisible && (
         <Card className='comment-card'>
           <div className='post-header'>
@@ -176,3 +209,4 @@ const Post = (props) => {
 };
 
 export default Post;
+
