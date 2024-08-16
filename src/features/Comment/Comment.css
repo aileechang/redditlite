@@ -4,7 +4,7 @@
     border: 1px solid var(--border-color);
     background-color: var(--bg-secondary);
     border-radius: 5px;
-    margin: 0 10px 3px;
+    margin-bottom: 3px;
     padding: 10px 15px 5px;
 }
 
@@ -35,4 +35,5 @@ img.avatar-profile-image {
 .comment-body {
     margin: 0;
     padding-left: 8px;
+    font-size: 0.9rem;
 }
