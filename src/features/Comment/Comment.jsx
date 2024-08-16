@@ -7,7 +7,7 @@ const Comment = (props) => {
     const { comment } = props;
 
     return (
-        <div className='comment'>
+        <div className='comment-item'>
             <div className='comment-metadata'>
                 <Avatar name={comment.author} />
                 <p className='comment-author'>{comment.author}</p>
@@ -15,7 +15,7 @@ const Comment = (props) => {
                     {moment.unix(comment.created_utc).fromNow()}
                 </p>
             </div>
-            <ReactMarkdown>{comment.body}</ReactMarkdown>
+            <ReactMarkdown className='comment-body'>{comment.body}</ReactMarkdown>
         </div>
     );
 };

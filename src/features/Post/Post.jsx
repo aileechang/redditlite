@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import './Post.css';
 import { FaChevronUp, FaChevronDown, FaComment } from "react-icons/fa";
-import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
+import { FaChevronCircleUp, FaChevronCircleDown, FaRegWindowClose } from "react-icons/fa";
 import moment from 'moment';
 import shortenNumber from '../../utility/shortenNumber';
 import Card from '../../components/Card/Card';
@@ -69,9 +69,9 @@ const Post = (props) => {
       );
     }
 
-    if (commentsVisible && post.comments) {
+    if (post.comments) {
       return (
-        <div>
+        <div className='comment-container'>
           {post.comments.map((comment) => (
             <Comment comment={comment} key={comment.id} />
           ))}
@@ -87,8 +87,15 @@ const Post = (props) => {
     onToggleComments(post.permalink);
   };
 
+  const closeComments = () => {
+    setCommentsVisible(false);
+    document.body.classList.remove('comments-visible');
+  };
+
   return (
     <>
+      <div className={commentsVisible ? 'overlay' : ''}></div>
+      
       <article key={post.id}>
         <Card className='card'>
           <div className='post-header'>
@@ -149,8 +156,11 @@ const Post = (props) => {
 
       {commentsVisible && (
         <Card className='comment-card'>
+          <button className='close-button' onClick={closeComments}>
+            <FaRegWindowClose className='window-close'/>
+          </button>
           <div className='post-header'>
-            <div className='header-info'>
+            <div className='comment-header-info'>
               <div className='info-details'>
                 <p className='author'>{post.author}</p>
                 <p className='subreddit'>r/{post.subreddit}</p>
@@ -172,4 +182,3 @@ const Post = (props) => {
 };
 
 export default Post;
-
