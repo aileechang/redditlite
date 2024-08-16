@@ -129,43 +129,6 @@ const Post = (props) => {
               >
                 {renderDownVote()}
               </button>
-              {/*
-              <button
-                type="button"
-                className={`icon-action-button up-vote ${
-                  voteValue === 1 && 'active'
-                }`}
-                onClick={() => onHandleVote(1)}
-                aria-label="Up vote"
-              >
-                {renderUpVote()}
-              </button>
-              <p className={`post-votes-value ${getVoteType()}`}>
-              {shortenNumber(post.ups, 1)}
-              </p> 
-              <button
-                type="button"
-                className={`icon-action-button down-vote ${
-                  voteValue === -1 && 'active'
-                }`}
-                onClick={() => onHandleVote(-1)}
-                aria-label="Down vote"
-              >
-                {renderDownVote()}
-              </button>
-            </div>
-            <div className='comment'>
-              <button 
-                type='button'
-                className={`icon-action-button ${
-                  commentsVisible && 'showing-comments'
-                }`}
-                onClick={toggleCommentsVisibility}
-                aria-label='Show comments'
-              >
-                <FaComment alt='Comments' className='icon-action action-comment' />
-              </button>
-              {shortenNumber(post.num_comments, 1)}  */}
             </div>
             <div className='comment'>
               <button 
